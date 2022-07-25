@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      .container {
+        width: 45%;
+        margin-top: 50px;
+        background-color: darkgray;
+        padding: 2px 40px 30px 30px;
+      }
+      table,
+      th,
+      tr,
+      td {
+        border: 1px solid;
+      }
+      .body2 {
+        text-align: center;
+        justify-items: center;
+        justify-content: center;
+        margin: auto;
+      }
+      table {
+        justify-content: center;
+        margin: auto;
+        margin-top: 15px;
+        padding: 0 15px 0 15px;
+      }
+      th {
+        /* display: inline-table; */
+        font-size: 22px;
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Student Reg. Form</h2>
+      <form action="#">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter Name"
+            name="name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Contact Number:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="number"
+            placeholder="Enter contact number"
+            name="number"
+          />
+        </div>
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            placeholder="Enter city you live"
+            name="city"
+          />
+        </div>
+      </form>
+      <button type="button" onclick="saveData()" id="save_btn">Submit</button>
+    </div>
+    <div id="display">
+      <div class="body2">
+        <table>
+          <thead>
+            <tr class="contains">
+              <h1>Student Info</h1>
+              <th>Name</th>
+              <th>Number</th>
+              <th>City</th>
+            </tr>
+          </thead>
+          <tbody style="width: 100px"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function saveData() {
+    var name, number, city;
+    name = document.getElementById("name").value;
+    number = document.getElementById("number").value;
+    city = document.getElementById("city").value;
+
+    var student_record = new Array();
+    student_record = JSON.parse(localStorage.getItem("users")) || [];
+
+    student_record.push({
+      name: name,
+      number: number,
+      city: city,
+    });
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("number", number);
+    localStorage.setItem("city", city);
+
+    localStorage.setItem("users", JSON.stringify(student_record));
+    displayTable(student_record);
+    // console.log("student_record: ", student_record);
+  }
+
+  function displayTable(student_record) {
+    document.querySelector("tbody").textContent = "";
+
+    student_record.map(function (el, index) {
+      var tr = document.createElement("tr");
+
+      var td1 = document.createElement("td");
+      td1.textContent = el.name;
+
+      var td2 = document.createElement("td");
+      td2.textContent = el.number;
+
+      var td3 = document.createElement("td");
+      td3.textContent = el.city;
+
+      tr.append(td1, td2, td3);
+      document.querySelector("tbody").append(tr);
+    });
+  }
+</script>

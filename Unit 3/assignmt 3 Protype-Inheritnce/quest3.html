@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 3</title>
+  </head>
+  <body>
+    Use constructor
+    <h4>
+      constructor functions to add custom methods to your Array constructor
+      function.
+    </h4>
+  </body>
+</html>
+<script>
+  /*constructor functions to add custom methods to your Array constructor function.
+  Pushing a new value to the array
+  Reversing the array and returning it
+  Return first element from the array */
+
+  const arr = ["tom", "cat", "mice", "jerry", "oswald"];
+  //printing same.
+  console.log("arr: ", arr);
+
+  //Pushing a new value to Array
+  arr.push("henry", "daisy");
+  console.log("arr: ", arr);
+
+  //to reverse the arr
+  const reverse = arr.reverse();
+  console.log("reverse: ", reverse);
+
+  //return first element of an array
+  var first_element = arr.at(0);
+  console.log("first_element: ", first_element);
+  //------------------------------------------------------------
+  // //Example 2
+  // let oswald = {
+  //   humorous: null,
+  //   eats: "tomatoes",
+  // };
+  // let jerry = {
+  //   __proto__: oswald,
+  //   eats: "cheese",
+  //   humorous: true,
+  // };
+  // console.log("jerry: ", jerry);
+</script>

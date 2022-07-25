@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Karlo Tickets</title>
+    <style>
+      table,
+      td,
+      th {
+        text-align: left;
+        border: 1px solid rgb(200, 189, 189);
+      }
+      #filter {
+        margin-bottom: 20px;
+      }
+      #container {
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-around;
+        /* border: 1px solid red; */
+      }
+      h1 {
+        margin-left: 42%;
+        font-family: sans-serif;
+        color: saddlebrown;
+      }
+      th,
+      td {
+        padding: 15px;
+      }
+      form > input {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        width: 200px;
+      }
+      #submit.hover {
+        background-color: green;
+      }
+      #filter {
+        margin-left: 75%;
+      }
+      h4 {
+        font-family: sans-serif;
+        color: green;
+      }
+      #category {
+        color: indigo;
+        padding: 0 45px 0 45px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Karlo Tickets</h1>
+    <select id="filter" onchange="filterCategory()">
+      <option value="">Filter By Category</option>
+      <option value="refund">Refund</option>
+      <option value="item">Item-Missing</option>
+      <option value="order">order Status</option>
+      <option value="delivery">Delivery</option>
+      <option value="feedback">Feedback</option>
+    </select>
+    <select id="sortTicket" onchange="sortTicket()">
+      <option value="">Sort by Ticket Number</option>
+      <option value="low">Low to High</option>
+      <option value="high">High to Low</option>
+    </select>
+    <div id="container">
+      <div>
+        <form>
+          <h4>To raise tickets/ issues, enter details below</h4>
+          <select id="category">
+            <option value="">Select Category</option>
+            <option value="refund">Refund</option>
+            <option value="item">Item-Missing</option>
+            <option value="order">order Status</option>
+            <option value="delivery">Delivery</option>
+            <option value="feedback">Feedback</option>
+          </select>
+          <br />
+          <br />
+          <input type="text" id="title" placeholder="Ticket Body" />
+          <br />
+          <br />
+          <textarea
+            name=""
+            id="body"
+            cols="25"
+            rows="10"
+            placeholder="Enter something desc"
+          ></textarea>
+          <br />
+          <input type="number" id="ticket" placeholder="Enter Ticket Number" />
+
+          <input type="submit" value="submit" />
+        </form>
+      </div>
+      <div id="display">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Ticket-Number</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  document.querySelector("form").addEventListener("submit", karlo);
+
+  //for return from or get back values;
+  var karloApp = JSON.parse(localStorage.getItem("karloItems")) || [];
+  displayTable(karloApp);
+
+  //for sorting tickets by amount
+  function sortTicket() {
+    var selected = document.querySelector("#sortTicket").value;
+    if (selected == "low") {
+      karloApp.sort(function (ac, cv) {
+        return ac.ticket - cv.ticket;
+      });
+    }
+    if (selected == "high") {
+      karloApp.sort(function (ac, cv) {
+        return cv.ticket - ac.ticket;
+      });
+    }
+    displayTable(karloApp);
+  }
+
+  
+  //Function
+  function karlo(event) {
+    event.preventDefault();
+    var selected = document.querySelector("#category").value;
+    var title = document.querySelector("#title").value;
+    var body = document.querySelector("#body").value;
+    var ticket = document.querySelector("#ticket").value;
+    console.log(selected, title, body, ticket);
+
+    var karloObj = {
+      category: selected,
+      title: title,
+      body: body,
+      ticket: ticket,
+    };
+    karloApp.push(karloObj);
+    localStorage.setItem("karloItems", JSON.stringify(karloApp));
+    displayTable(karloApp);
+  }
+
+  //Main Function for Creation of elements;
+  function displayTable(karloApp) {
+    document.querySelector("tbody").textContent = "";
+    karloApp.map(function (elem, index) {
+      var tr = document.createElement("tr");
+
+      var td1 = document.createElement("td");
+      td1.textContent = elem.category;
+
+      var td2 = document.createElement("td");
+      td2.textContent = elem.title;
+
+      var td3 = document.createElement("td");
+      td3.textContent = elem.body;
+
+      var td4 = document.createElement("td");
+      td4.textContent = elem.ticket;
+
+      tr.append(td1, td2, td3, td4);
+      document.querySelector("tbody").append(tr);
+    });
+  }
+</script>

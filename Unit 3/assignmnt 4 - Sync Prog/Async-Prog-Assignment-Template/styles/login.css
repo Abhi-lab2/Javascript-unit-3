@@ -1,0 +1,60 @@
+/* Nav Bar */
+#nav {
+  display: flex;
+  height: 40px;
+  margin-top: 20px;
+  padding: 25px 15px 0 20px;
+  justify-content: right;
+  border: 2px solid black;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+.right {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  cursor: pointer;
+}
+
+/* Log-IN page */
+#login-form-div {
+  width: 20%;
+  height: 340px;
+  margin: auto;
+  margin-top: 45px;
+  justify-content: center;
+  background: rgb(241, 243, 241);
+  padding-left: 60px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* Login Page - text */
+h1 {
+  color: royalblue;
+  padding-top: 25px;
+  margin-left: 25px;
+  display: grid;
+  font-family: sans-serif;
+  /* border: 1px solid red; */
+}
+
+/* Button */
+#btn:hover {
+  background-color: rgb(0, 255, 119);
+  color: black;
+}
+.email,
+#pass,
+#user,
+#mbl {
+  margin: 10px;
+}
+#btn {
+  margin: 45px auto auto 35px;
+  padding: 5px 50px 5px 50px;
+  background-color: teal;
+  border: 0px solid black;
+  color: white;
+  font-family: sans-serif;
+  font-size: 15px;
+}

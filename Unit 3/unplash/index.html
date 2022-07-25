@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Unplash</title>
+    <style>
+        #container{
+            display: flex;
+            
+        }
+        #main{
+            display: grid;
+           grid-template-columns: repeat(3,1fr);
+            gap: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+
+        </div>
+       <div id="main"></div>
+            
+       
+    </div>
+</body>
+</html>
+<script type="module">
+    import sidebar from "./components/sidebar.js";
+    import {makeAPICall,appendPictures} from"./scripts/main.js";
+
+    let sidebar_div=document.getElementById("sidebar")
+
+    sidebar_div.innerHTML=sidebar();
+    let images_data=await makeAPICall(
+        "https://api.unsplash.com/photos/?client_id=S9uQHezDWcJOjTmmIW92sCZan8RrfAfdB8o0qgrAvX0"
+    );
+    console.log("images_data:",images_data);
+    let parent=document.getElementById("main");
+    appendPictures(images_data,parent);
+    let input=document.getElementById("searchbar");
+    input.addEventListener("keypress",(e)=>{
+        if(e.key==="Enter")
+        {
+            let input_value=document.getElementById("searchbar").value;
+        localStorage.setItem("search_term",input_value);
+    window.location.href="search.html";
+        }
+    });
+</script>

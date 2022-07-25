@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #container {
+      display: flex;
+      border: 5px solid black;
+      /* height: 500px; */
+    }
+    #sidebar {
+      flex: 2;
+      border: 6px solid black;
+      background-color: ghostwhite;
+    }
+    #sidebar > div {
+      margin: 15%;
+    }
+    #main {
+      flex: 8;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #sidebar > div {
+      font-weight: bold;
+      font-size: 25px;
+      text-align: center;
+      font-style: italic;
+    }
+    .img {
+      height: 280px;
+      width: 300px;
+      /* border: 4px solid black; */
+    }
+    .p {
+      font-weight: bold;
+      font-size: 30px;
+      font-style: italic;
+    }
+    .card {
+      border: 8px solid black;
+      background-color: rgb(94, 166, 168);
+      height: 380px;
+      width: 25%;
+      text-align: center;
+      padding: 2%;
+      margin: 10px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    #searchbar {
+      height: 30px;
+      width: 190px;
+      margin-left: 6%;
+      border: 3px solid black;
+      background-color: whitesmoke;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="sidebar">
+        <!-- don't create other ID'S -->
+        <!-- append the horizontal data here only -->
+      </div>
+      <div id="main">
+        <!-- don't create other ID'S -->
+        <!-- append top images here only -->
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module" src="index.js"></script>

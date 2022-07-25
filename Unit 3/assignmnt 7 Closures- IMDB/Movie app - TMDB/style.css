@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #22254b;
+  font-family: sans-serif;
+  margin: 0;
+  background-image: url(https://media.istockphoto.com/vectors/modern-cinema-background-with-realistic-film-strips-movie-frames-for-vector-id1204686375?k=20&m=1204686375&s=170667a&w=0&h=noJ_-Y0CLFJC0cnXhQj4QHd7JkSvDBcJ9e85LqpJl2M=);
+}
+
+header {
+  background-color: #373b69;
+  display: flex;
+  justify-content: flex-end;
+  padding: 80px;
+  background-image: url(https://www.joblo.com/wp-content/uploads/2010/05/inception-poster-quad-1.jpg);
+}
+
+.search {
+  background-color: transparent;
+  border: 4px solid #b1071e;
+  border-radius: 50px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+.search::placeholder {
+  color: #7378c5;
+}
+
+.search:focus {
+  background-color: #22254b;
+  outline: none;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie {
+  background-color: #373b69;
+  border-radius: 3px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  margin: 16px;
+  width: 300px;
+}
+
+.movie img {
+  width: 100%;
+}
+
+.movie-info {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 16px;
+  letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+  margin: 0;
+}
+
+.movie-info span {
+  background-color: #404374;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
+.movie-info span.green {
+  color: rgb(39, 189, 39);
+}
+
+.movie-info span.orange {
+  color: orange;
+}
+
+.movie-info span.red {
+  color: rgb(189, 42, 42);
+}
+
+.overview {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute;
+  max-height: 100%;
+  overflow: auto;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+
+.overview h3 {
+  margin-top: 0;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}

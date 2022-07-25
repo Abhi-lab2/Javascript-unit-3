@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <!-- <div id="navbar">
+      <a href="index.html" id="logo">The Meal</a>
+      <div id="navbar-right">
+        <input id="input-box" type="text" placeholder="Search.." />
+        <button onclick="search()" type="submit" class="btn"></button>
+        <a class="active" href="byname.html">Food Name</a>
+        <a href="day.html">Day</a>
+        <a href="random.html">Random</a>
+      </div>
+    </div> -->
+
+    <div id="nav-container"></div>
+    <div id="data"></div>
+  </body>
+</html>
+<script type="module" src="index.js"></script>
+<!-- 
+<script>
+  import { getData } from "./scripts/showData.js";
+
+  document.querySelector(".btn").addEventListener("click", search);
+
+  async function search(url) {
+    try {
+      var search1 = document.querySelector("#input-box").value;
+      console.log(search1);
+
+      let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${search1}`;
+
+      let res = await getdata(url);
+      console.log("res:", res);
+      appendData2(res);
+    } catch (err) {
+      console.log("err:", err);
+    }
+  }
+
+  function appendData2(main3) {
+    data.categories.forEach((el) => {
+      let div = document.createElement("div");
+
+      //Category
+      let p = document.createElement("h4");
+      p.innerText = el.strCategory;
+
+      //Category Description
+      let p1 = document.createElement("p");
+      p1.innerText = el.strCategoryDescription;
+
+      //Images
+      let img = document.createElement("img");
+      img.src = el.strCategoryThumb;
+
+      div.append(img, p);
+      main3.append(div);
+    });
+  }
+  // function appendData2(data1) {
+  //   console.log("data1: ", data1);
+
+  //   document.querySelector(#data).innerHTML = ""
+
+  //   data.categories.map(function(elem){
+  //     var box = document.createElement("div")
+  //     box.setAttribute("class","box");
+
+  //     var h3 = document.createElement("h1");
+  //     h3.innerHTML = elem.meals[0].strMeal
+
+  //     var img = document.createElement("img");
+  //     img.src = elem.meals[0].strMealThumb;
+  //     img.setAttribute("class","img")
+
+  //     var area = document.createElement("p");
+  //     area.innerHTML = elem.meals[0].strArea
+  //      box.append(h3,img)
+  //     //  parent.append(box,area)
+  //    document.querySelector("#data").append(box,area)
+  // })
+  // }
+</script> -->

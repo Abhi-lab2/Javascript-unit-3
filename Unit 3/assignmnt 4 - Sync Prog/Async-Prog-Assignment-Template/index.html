@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <head>
+      <link rel="stylesheet" href="styles/index.css" />
+    </head>
+  </head>
+
+  <body>
+    <div id="nav">
+      <!-- Top Nav Bar -->
+      <div class="right">
+        <div onclick="window.location.href='index.html'">Home</div>
+        <div onclick="window.location.href='login.html'">Login</div>
+        <div onclick="window.location.href='signup.html'">Signup</div>
+      </div>
+    </div>
+    <div id="slideshow">
+      <!--Show Slideshow here-->
+      <img src="" id="projector" alt="" />
+      <img name="slide" width="100%" height="460" />
+    </div>
+
+    <div id="sort-buttons">
+      <!--Add sorting here-->
+      <label>Sort by name:</label>
+      <select id="nameSelect" onchange="filtercategory()">
+        <option value="">Select order</option>
+        <option value="a-z">A-Z</option>
+        <option value="z-a">Z-A</option>
+      </select>
+    </div>
+    <div id="movies">
+      <!--Show list of movies here-->
+      <div>
+        <img
+          src="https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg/250x145"
+          alt=""
+          width="50%"
+          height="100%"
+        />
+        <p>Jai Bhim</p>
+        <h4>Crime and Drama</h4>
+      </div>
+      <div>
+        <img
+          src="https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg/250x145"
+          alt=""
+          width="50%"
+          height="100%"
+        />
+        <p>The GodFather</p>
+        <h4>Crime and Drama</h4>
+      </div>
+      <div>
+        <img
+          src="https://assets.vogue.in/photos/5ebe9445d51c977674ef6927/2:3/w_2560%2Cc_limit/marvel-movie-franchises-binge-watch-harry-potter-mission-impossible-die-hard.jpg/250x145"
+          alt="movie spl 26"
+          width="50%"
+          height="100%"
+        />
+        <p>Special 26</p>
+        <h4>Drama & Comedy</h4>
+      </div>
+      <div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZDc9ZyQJfhfaVSu6QN_qnRmFjsFgbtJSH3Q&usqp=CAU/120x120"
+          width="50%"
+          height="100%"
+        />
+        <p>Taarak Mehta</p>
+        <h4>Comedy</h4>
+      </div>
+      <div>
+        <img
+          src="https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg/250x145"
+          alt=""
+          width="50%"
+          height="100%"
+        />
+        <p>Spiderman</p>
+        <h4>Action</h4>
+      </div>
+      <div>
+        <img
+          src="https://assets.vogue.in/photos/5ebe9445d51c977674ef6927/2:3/w_2560%2Cc_limit/marvel-movie-franchises-binge-watch-harry-potter-mission-impossible-die-hard.jpg/250x145"
+          alt=""
+          width="50%"
+          height="100%"
+        />
+        <p>Spiderman 2</p>
+        <h4>Crime and Drama</h4>
+      </div>
+      <div>
+        <img
+          src="https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg/250x145"
+          alt=""
+          width="50%"
+          height="100%"
+        />
+        <p>Superman</p>
+        <h4>Drama</h4>
+      </div>
+      <div>
+        <img
+          src="https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg/250x145"
+          alt=""
+          width="50%"
+          height="100%"
+        />
+        <p>Avengers</p>
+        <h4>Crime and Drama</h4>
+      </div>
+      <div>
+        <img
+          src="https://assets.vogue.in/photos/5ebe9445d51c977674ef6927/2:3/w_2560%2Cc_limit/marvel-movie-franchises-binge-watch-harry-potter-mission-impossible-die-hard.jpg/250x145"
+          alt=""
+          width="50%"
+          height="100%"
+        />
+        <p>Prison Break</p>
+        <h4>Crime and Drama</h4>
+      </div>
+    </div>
+    <div id="mainImg">
+      <div id="cardsContainer"></div>
+    </div>
+  </body>
+</html>
+<script src="scripts/index.js"></script>

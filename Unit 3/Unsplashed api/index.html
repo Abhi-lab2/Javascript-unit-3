@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #container {
+      display: flex;
+    }
+    #sidebar {
+      flex: 2;
+      border: 1px solid black;
+    }
+    #main {
+      flex: 8;
+      display: grid;
+      grid-template-columns: repeat(3, 20%);
+      gap: 6%;
+      border: 1px solid black;
+    }
+    .img {
+      height: 280px;
+      width: 300px;
+    }
+    .p {
+      font-weight: bold;
+      font-size: 30px;
+    }
+    .box {
+      border: 8px solid black;
+      background-color: rgb(94, 166, 168);
+      height: 500px;
+      width: 400px;
+      text-align: center;
+      padding: 2%;
+      gap: 5%;
+      margin: 10px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    img {
+      margin: 10px;
+    }
+  </style>
+
+  <body>
+    <div id="container">
+      <div id="sidebar">
+        <!-- Dont change Id -->
+        <!-- Append here - horizontal -->
+      </div>
+      <div id="main">
+        <!-- Dont change ID -->
+        <!-- Append here -->
+      </div>
+    </div>
+  </body>
+</html>
+
+<script type="module" src="index.js">
+  // 1. Create UI Component and Export
+  // 2. Import NavBar
+  // 3. Append the Navbar
+  // 4. Get images using Fetch
+  // 5. Import Make API call
+
+</script>

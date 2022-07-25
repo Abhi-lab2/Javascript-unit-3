@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>datatype learning app</title>
+    <style>
+      #container {
+        text-align: center;
+        justify-content: center;
+        margin-top: 100px;
+      }
+      button {
+        margin: 10px;
+        padding: 20px;
+        background-color: rgb(109, 241, 100);
+      }
+      h2 {
+        font-family: sans-serif;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>Click below buttons for information</h2>
+      <div id="block">
+        <a href="Objects.html"><button>Objects</button></a>
+        <a href="Arrays.html"><button>Arrays</button></a>
+        <a href="Functions.html"><button>Functions</button></a>
+        <a href="Strings.html"><button>Strings</button></a>
+        <a href="Numbers.html"><button>Number</button></a>
+        <a href="Null.html"><button>Null</button></a>
+        <a href="Undefined.html"><button>Undefined</button></a>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function index() {
+    var button = document.getElementById("button");
+    document.getElementById("fav").value =
+      button.options[button.selectedIndex].text;
+  }
+</script>

@@ -1,0 +1,97 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  background-image: url(images/bg.png);
+  background-color: teal;
+  height: 500px;
+  background-position: center;
+}
+.container {
+  width: 50%;
+  background-color: white;
+  align-self: center;
+  display: block;
+  margin: 100px auto;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  box-shadow: 5px 10px 20px black;
+}
+.app-title {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.app-title p {
+  text-align: center;
+  padding: 15px;
+  margin: 0 auto;
+  font: 14px;
+  color: #333;
+}
+#search {
+  display: block;
+  margin: auto;
+  width: 40%;
+  height: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid grey;
+}
+.alt p {
+  color: brown;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+  padding: 10px 0;
+}
+.weather-box {
+    width: 100%;
+    height: 260px;
+    margin-top: 20px;
+}
+.icons {
+    width: 100%;
+    height: 120px;
+}
+.icons img {
+    display: block;
+    margin: 0 auto;
+}
+.location-icon {
+    display: block;
+    width: 30px;
+    margin: 10px auto;
+    cursor: pointer;
+    padding: 5px;
+    border: 2px teal solid;
+    border-radius: 10px;
+    color: teal;
+}
+.temperature-value span {
+    color: brown;
+    font-size: 8px;
+}
+.temperature-description p {
+    padding: 8px;
+    margin: 0;
+    color: brown;
+    text-align: center;
+    font-size: 1.2em;
+}
+.location p {
+    margin : 0;
+    padding: 0;
+    color: brown;
+    text-align: center;
+    font-size: 0.8em;
+}
+div.relative {
+    position: absolute;
+    top: 600px;
+    right: 120px;
+}

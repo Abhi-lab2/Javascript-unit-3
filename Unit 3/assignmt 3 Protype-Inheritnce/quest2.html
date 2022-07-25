@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritance</title>
+  </head>
+  <body>
+    <h2>Array Constructor</h2>
+    <p>
+      Create your custom Array constructor which should return an Array Object.
+    </p>
+  </body>
+</html>
+<script>
+  //giving name to a fun as myarr()
+  function myArray() {
+    this.push("myArray");
+    this.push("myName-abhi");
+    this.push("myPlace-Mumbai");
+  }
+  myArray.prototype = Object.create(Array.prototype);
+
+  var a = new myArray();
+  console.log("myArray: ", myArray);
+
+  console.log("a: ", a);
+
+  //   console.log('Array: ', Array);
+</script>

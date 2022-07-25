@@ -1,0 +1,80 @@
+#nav {
+  display: flex;
+  height: 40px;
+  margin-top: 20px;
+  padding: 25px 15px 0 20px;
+  justify-content: right;
+  border: 2px solid black;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+.right {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  cursor: pointer;
+}
+/* Sort Button */
+#sort-buttons {
+  justify-content: center;
+  margin: auto;
+  margin-top: 25px;
+  margin-right: 50px;
+  text-align: end;
+}
+button {
+  padding: 2px 38px;
+}
+/* Grid Images */
+#movies {
+  width: 85%;
+  height: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  /* border: 1px solid blue; */
+}
+#movies > div {
+  width: 30%;
+  height: 200px;
+  padding: 0px 10px 0 10px;
+  margin: 50px 0 0 0;
+  /* flex-wrap: nowrap; */
+  display: flex;
+  font-family: sans-serif;
+  justify-content: space-evenly;
+  /* border: 1px solid green; */
+  gap: 5px;
+}
+
+h4 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 4em;
+  margin-block-end: 5em;
+  margin-inline-start: -70px;
+  margin-inline-end: 0em;
+  font-weight: normal;
+  width: 550px;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: -8px;
+  font-weight: 700;
+  width: 400px;
+}
+#cardsContainer {
+  width: 120px;
+  height: 120px;
+}
+#cardImage{
+  width: 80px;
+}
+#mainImg {
+  width: 50px;
+  height: 50px;
+}

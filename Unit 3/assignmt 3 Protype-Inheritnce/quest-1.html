@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>inheritance</h3>
+  </body>
+</html>
+<script>
+  function Person(first, place, age, eye) {
+    this.firstName = first;
+    this.birthplace = place;
+    this.age = age;
+    this.eyeColor = eye;
+  }
+
+  Person.prototype.nationality = "Indian";
+
+  const myGrandFather = new Person("rajesh", "chaudhari", 85, "black");
+  console.log("myGrandFather: ", myGrandFather);
+
+  //Method 2. -----------------------------------------------
+
+  var grandParents = {
+    src_inc: "business",
+    specs: true,
+    birth: "india",
+    fav_food: "veggies",
+    twins: newFunction(), //Global Scope - line 20
+
+    fam: function () {
+      console.log("myFamTree");
+    },
+  };
+  var familyTree = Object.create(grandParents);
+
+  familyTree.hasOwnProperty("fam");
+  familyTree.fam();
+
+  console.log(familyTree.fav_food);
+
+  function newFunction() {
+    return "none";
+  }
+</script>

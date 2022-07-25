@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api</title>
+    <style>
+      body {
+        background-color: lightgoldenrodyellow;
+        margin-left: 25px;
+        background-image: url(https://media.istockphoto.com/vectors/modern-cinema-background-with-realistic-film-strips-movie-frames-for-vector-id1204686375?k=20&m=1204686375&s=170667a&w=0&h=noJ_-Y0CLFJC0cnXhQj4QHd7JkSvDBcJ9e85LqpJl2M=);
+      }
+      .nav {
+        display: flex;
+        height: 350px;
+        margin-top: 20px;
+        border-radius: 20px;
+        padding: 25px 15px 0 20px;
+        justify-content: right;
+        border: 2px solid blue;
+        font-weight: 700;
+        font-family: sans-serif;
+        /* background-repeat: no-repeat; */
+        object-fit: cover;
+        background-image: url(https://m.media-amazon.com/images/I/81O7TUh3jUL._QL20_V1_.jpg);
+        background-size: 1400px 340px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .t1 {
+        color: white;
+        padding-left: 2px;
+        font-family: sans-serif;
+        margin-right: 125px;
+      }
+      .img2 {
+        width: 300px;
+        height: 445px;
+        box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+      }
+      .input {
+        text-align: end;
+        margin: 5px 15px 25px 0;
+      }
+      input {
+        padding: 10px 20px;
+      }
+      #search {
+        background-color: rgb(142, 156, 163);
+        padding: 8px 8px 8px 40px;
+        border-radius: 0px 15px 0 15px;
+      }
+      button {
+        background-color: burlywood;
+        padding: 5px 10px;
+      }
+      #container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input">
+      <!-- Top Nav Bar -->
+      <div class="nav">
+        <header>
+          <input
+            oninput="debounce(main,1000)"
+            type="text"
+            id="search"
+            placeholder="Search for a movie..."
+          />
+          <!-- <button onclick="getMovies()">Search</button> -->
+        </header>
+      </div>
+    </div>
+    <div id="container"></div>
+  </body>
+</html>
+
+<!-- JS CODE -->
+
+<script>
+  // let url = "http://www.omdbapi.com/?i=tt3896198&apikey=1d8314b1";
+  var timerId;
+
+  const search = document.querySelector("#search");
+  search.addEventListener("keypress", setQuery);
+
+  function setQuery(evt) {
+    if (evt.keyCode == 13) {
+      getMovies(search.value);
+    }
+  }
+
+  async function getMovies() {
+    let movie = document.getElementById("search").value;
+    //console.log('movie: ', movie);
+
+    try {
+      let res = await fetch(
+        `http://www.omdbapi.com/?apikey=f3d5c71f&s=${movie}`
+      );
+      let data = await res.json();
+      //appendMovies(data);
+      return data.Search;
+      //console.log("data: ", data);
+    } catch (err) {
+      console.log("err: ", err);
+    }
+  }
+  //getMovies();
+  async function main(data) {
+    //let data = await searchMovie();
+    if (data === undefined) {
+      return false;
+    }
+    //console.log("data: ", data);
+    appendMovies(data);
+  }
+
+  let container = document.getElementById("container");
+
+  function appendMovies(data) {
+    //console.log("data: ", data);
+    document.querySelector("#container").textContent = "";
+
+    data.forEach((el) => {
+      var div = document.createElement("div");
+      console.log("div: ", div);
+
+      let img = document.createElement("img");
+      img.setAttribute("class", "img2");
+      img.src = el.Poster;
+
+      let title = document.createElement("h3");
+      title.setAttribute("class", "t1");
+      title.innerText = el.Title;
+
+      let year = document.createElement("h4");
+      year.setAttribute("class", "t1");
+      year.innerText = `Release Date :  ` + el.Year;
+
+      let rating = document.createElement("p");
+      var rates = Math.floor(Math.random() * 11) + 1;
+      rating.setAttribute("class", "rating");
+      rating.innerText = el.rates;
+
+      var recommended_movies = document.createElement("p");
+      if (rates > 8.5) {
+        recommended_movies.innerHTML = "Most Watched Movie";
+      } else {
+        recommended_movies.innerHTML = "";
+      }
+      // let imge = document.createElement("imge");
+      //   imge.setAttribute(
+      //   "src",
+      //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeg_1PQSI7TWIB5y_TP7lanRYbVXfHbpeeSw&usqp=CAU"
+      // );
+
+      div.append(img, title, year, rating, recommended_movies);
+
+      container.append(div);
+    });
+  }
+
+  //Debouncing
+  function debounce(func, delay) {
+    // If setTimeout is already scheduled, no need to do anything
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    // Schedule a setTimeout after delay seconds
+    timerId = setTimeout(function () {
+      func();
+    }, delay);
+  }
+  //2nd
+  async function main() {
+    let name = document.getElementById("search").value;
+    if (name.length <= 2) {
+      return false;
+    }
+    console.log("fired");
+    let m = await getMovies(name);
+    appendMovies(m);
+  }
+</script>

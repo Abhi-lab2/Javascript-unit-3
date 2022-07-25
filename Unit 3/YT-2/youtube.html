@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- CSS File for this page -->
+    <link rel="stylesheet" href="youtube.css" />
+  </head>
+  <!-- Html Body -->
+  <body>
+    <nav class="navbar">
+      <div class="wrapper d-flex space-between justify-content align-items">
+        <div class="navbar__left">
+          <i class="fa fa-bars navbar__left__hamburger" aria-hidden="true"></i>
+          <img
+            src="img/yt_img.png"
+            alt="youtube"
+            width="60px"
+            class="navbar__left__logo"
+          />
+        </div>
+        <div class="navbar__center">
+          <i
+            class="fa fa-arrow-left navbar__center__arrow"
+            aria-hidden="true"
+          ></i>
+          <!-- Input Box  -->
+          <input type="text" id="search" placeholder="Search" />
+          <!-- Search Button ke lie -->
+          <button onclick="searchVideos()" class="navbar__center__search-btn">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+        <!-- Right Side Icons -->
+        <div class="navbar__right">
+          <i class="fa fa-search navbar__right__icon" aria-hidden="true"></i>
+          <i
+            class="fa fa-video-camera navbar__right__icon"
+            aria-hidden="true"
+          ></i>
+          <i class="fa fa-th navbar__right__icon" aria-hidden="true"></i>
+          <i class="fa fa-bell navbar__right__icon" aria-hidden="true"></i>
+          <i class="fa fa-user navbar__right__icon" aria-hidden="true"></i>
+        </div>
+      </div>
+    </nav>
+    <div id="left-nav">
+      <div id="column">
+        <div class="col">
+          <img src="yt-img/home.png" width="30px" alt="" class="ytt" />
+          <span> Home</span>
+          <br />
+          <p></p>
+          <img src="yt-img/explore.png" width="30px" alt="" class="ytt" />
+          <span>Explore</span>
+          <br />
+          <p></p>
+          <img src="yt-img/subscriprion.png" width="30px" alt="" class="ytt" />
+          <span> Subscription</span>
+          <br />
+          <br />
+          <p></p>
+        </div>
+        <div class="col2">
+          <img src="yt-img/library.png" width="30px" alt="" class="ytt" />
+          <span> Library</span>
+          <br />
+          <p></p>
+          <img src="yt-img/history.png" width="30px" alt="" class="ytt" />
+          <span> History</span>
+          <br />
+          <p></p>
+          <img src="yt-img/cast.png" width="30px" alt="" class="ytt" />
+          <span> Your videos</span>
+          <br />
+          <p></p>
+          <img src="yt-img/playlist.png" width="30px" alt="" class="ytt" />
+          <span> Watch later</span>
+          <br />
+          <p></p>
+          <img src="yt-img/like.png" width="30px" alt="" class="ytt" />
+          <span> Liked videos</span>
+          <br />
+          <p></p>
+          <img src="yt-img/show-more.png" width="30px" alt="" class="ytt" />
+          <span> Show more</span>
+          <br />
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="bar2"></div> -->
+    <!-- For Search Results into this Div || All videos into this div-->
+    <div id="search_results"></div>
+  </body>
+</html>
+
+<!-- JS Script -->
+<script>
+  //let API = "AIzaSyAZBT8Jd0kWKjVzS-Gwy-ErvUNXg3PVEdQ";
+
+  let search_results_div = document.getElementById("search_results");
+
+  async function searchVideos() {
+    try {
+      // This gives us the input data from an API.
+      let input = document.getElementById("search").value;
+
+      let res = await fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?q=${input}&key=${API}&type=video&maxResults=25&part=snippet`
+      );
+
+      //to print the data into Console.
+      let data = await res.json();
+      console.log("data:", data);
+
+      let array_of_videos = data.items;
+
+      appendVideos(array_of_videos);
+    } catch (err) {
+      console.log("err:", err);
+    }
+  }
+
+  const appendVideos = (arr) => {
+    arr.forEach(({ id: { videoId } }) => {
+      console.log("videoId:", videoId);
+      let div = document.createElement("div");
+
+      //Using Iframe for the video player to play the video.
+      let iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      iframe.width = "300px";
+      iframe.height = "190px";
+      //iframe.allowfullscreen = "true";
+
+      iframe.setAttribute("allowfullscreen", true);
+
+      div.append(iframe);
+
+      search_results_div.append(div);
+    });
+  };
+</script>
