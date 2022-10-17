@@ -1,0 +1,13 @@
+.container {
+  text-align: center;
+  text-decoration: none;
+}
+
+.navigations {
+  justify-content: space-around;
+  display: flex;
+  text-decoration: none;
+  text-underline-offset: none;
+  background-color: rgb(228, 195, 7);
+  margin-bottom: 15px;
+}

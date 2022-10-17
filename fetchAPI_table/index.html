@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status" id="loading">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- <h1>Registered Employees</h1> -->
+    <!-- table for showing data -->
+    <!-- <table id="employees"></table> -->
+    <h1>Authors</h1>
+    <ul id="authors"></ul>
+  </body>
+</html>
+
+<script>
+  const ul = document.getElementById("authors");
+  const list = document.createDocumentFragment();
+  const url = "https://jsonplaceholder.typicode.com/users";
+
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      let authors = data;
+
+      authors.map(function (author) {
+        let li = document.createElement("li");
+        let name = document.createElement("h2");
+        let email = document.createElement("span");
+
+        name.innerHTML = `${author.name}`;
+        email.innerHTML = `${author.email}`;
+
+        li.appendChild(name);
+        li.appendChild(email);
+        list.appendChild(li);
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  ul.appendChild(list);
+</script>

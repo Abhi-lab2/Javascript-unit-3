@@ -1,0 +1,32 @@
+.container {
+  text-align: center;
+  text-decoration: none;
+}
+
+.navigations {
+  justify-content: space-around;
+  display: flex;
+  text-decoration: none;
+  text-underline-offset: none;
+  background-color: rgb(228, 195, 7);
+  margin-bottom: 15px;
+}
+#searchResultsMain {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  grid-gap: 5px;
+  /* border */
+}
+#cardContainer > img {
+  height: 100%;
+  width: 100%;
+}
+#puppyMain {
+  text-align: center;
+  margin: auto;
+  color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: bold;
+}

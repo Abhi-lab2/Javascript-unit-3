@@ -45,14 +45,14 @@
       let cart = localStorage.getItem("cart");
       if (!cart) {
         cart = [];
-        localStorage.setItem("cart", JSON.stringify(cart));
+        // localStorage.setItem("cart", JSON.stringify(cart));
         refreshCartCount(cart);
       } else {
         cart = JSON.parse(cart);
         refreshCartCount(cart);
       }
       function refreshCartCount(cart) {
-        // argument format [{id:1, title:1, ...},{},{}]
+        
         let cartCount = document.getElementById("cart-count");
         cartCount.textContent = " Cart Count : " + cart.length;
       }
@@ -69,7 +69,8 @@
             console.log(err);
           });
       }
-      //===========================================================
+      
+      //========================/ SORT PRODUCTS /===================================
       async function sortProducts() {
         try {
           // get all the products;

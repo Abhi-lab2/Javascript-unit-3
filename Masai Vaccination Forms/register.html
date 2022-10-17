@@ -1,0 +1,321 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="register.css" />
+  </head>
+  <body>
+    <section>
+      <nav class="navbar">
+        <div class="navbar-container container">
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+            <li><a href="register.html">Registration </a></li>
+            <li><a href="dashboard.html">Dashboard </a></li>
+            <li><a href="vaccinated.html">Vaccinated </a></li>
+          </ul>
+          <h1 class="logo">Masai Vaccination</h1>
+        </div>
+      </nav>
+    </section>
+    <br />
+    <div class="container">
+      <header>
+        <h1>Registration Page</h1>
+      </header>
+
+      <form class="form" id="form">
+        <label for="username">Unique ID</label>
+        <input type="text" id="unique" placeholder="unique id" /> <br />
+
+        <label for="username">Name</label>
+        <input type="text" name="username" id="username" /> <br />
+
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" /> <br />
+
+        <span style="display: flex" id="radioBtn">
+          <label for="designation">Designation </label>
+          <input type="radio" id="html" name="fav_language" value="Employee" />
+          <label for="Employee">Employee </label>
+          <input type="radio" name="fav_language" value="Student" />
+          <label for="Student">Student</label>
+        </span>
+        <br />
+        <select id="category" id="cat">
+          <option value="">Priority</option>
+          <option value="Fiction">P0</option>
+          <option value="Self Help">P1</option>
+          <option value="Finance">P2</option>
+        </select>
+        <br />
+
+        <select id="Vaccine" id="Vaccine">
+          <option value="">Vaccine</option>
+          <option value="Covishield">Covishield</option>
+          <option value="Covaxin">Covaxin</option>
+          <option value="Sputnik">Sputnik</option>
+        </select>
+        <br />
+
+        <input id="submit" type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
+<script>
+  //   // Dom elements
+  //   let form = document.querySelector("form");
+  //   let userName = document.querySelector("#username");
+  //   let age = document.querySelector("#age");
+  //   let designation = document.querySelector("#designation");
+  //   let category = document.querySelector("#category");
+  //   let Vaccine = document.querySelector("#Vaccine");
+  //   //   let age = document.querySelector("#age");
+
+  //   // Event listener to submit form
+  //   form.addEventListener("submit", (e) => {
+  //     e.preventDefault();
+  //     handleInput();
+  //   });
+
+  //   function handleInput() {
+  //     // Values from dom elements ( input )
+  //     let userNameValue = userName.value.trim();
+  //     let Age = age.value.trim();
+  //     let DesignationValue = designation.value.trim();
+  //     let CategoryValue = category.value.trim();
+  //     let VaccineValue = Vaccine.value.trim();
+
+  //     //  Checking for username
+  //     if (userNameValue === "") {
+  //       setErrorFor(userName, "Username cannot be blank");
+  //     } else if (userNameValue.length <= 4) {
+  //       setErrorFor(userName, "Username must be at least 4 characters");
+  //     } else {
+  //       setSuccessFor(userName);
+  //     }
+  //     // Age
+  //     if (Age === "") {
+  //       setErrorFor(Age, "Age cannot be blank");
+  //     } else if (Age <= 18 || Age >= 40) {
+  //       setErrorFor(Age, "Age is not acceptable");
+  //     } else {
+  //       setSuccessFor(Age);
+  //     }
+
+  //     if (Designation === "") {
+  //       setErrorFor(Designation, "Designation cannot be blank");
+  //     } else if (Designation <= 18 || Designation >= 40) {
+  //       setErrorFor(Designation, "Designation is not acceptable");
+  //     } else {
+  //       setSuccessFor(Designation);
+  //     }
+  //   }
+  //   const main = document.getElementById("main");
+
+  //   function setErrorFor(input, message) {
+  //     let formControl = input.parentElement;
+  //     formControl.className = "form-control error";
+  //     let small = formControl.querySelector("small");
+  //     small.innerText = message;
+  //   }
+
+  //   function setSuccessFor(input) {
+  //     let formControl = input.parentElement;
+  //     formControl.className = "form-control success";
+  //   }
+
+  document.querySelector("#form").addEventListener("submit", appendDataLS);
+  let vaccineData = JSON.parse(localStorage.getItem("vaccineData")) || [];
+  function appendDataLS(event) {
+    event.preventDefault();
+
+    let Data = {
+      username: document.querySelector("#username").value,
+      age: document.querySelector("#age").value,
+      radioBtn: document.querySelector("#radioBtn").value,
+      cat: document.querySelector("#cat").value,
+      Vaccine: document.querySelector("#Vaccine").value,
+    };
+
+    document.querySelector("#username").value;
+    document.querySelector("#age").value;
+    document.querySelector("#radioBtn").value;
+    document.querySelector("#cat").value;
+    document.querySelector("#Vaccine").value;
+    // Push data
+    vaccineData.push(Data);
+    console.log(vaccineData);
+    localStorage.setItem("vaccineData", JSON.stringify(vaccineData));
+  }
+</script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="register.css" />
+  </head>
+  <body>
+    <section>
+      <nav class="navbar">
+        <div class="navbar-container container">
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+            <li><a href="register.html">Registration </a></li>
+            <li><a href="dashboard.html">Dashboard </a></li>
+            <li><a href="vaccinated.html">Vaccinated </a></li>
+          </ul>
+          <h1 class="logo">Masai Vaccination</h1>
+        </div>
+      </nav>
+    </section>
+    <br />
+    <div class="container">
+      <header>
+        <h1>Registration Page</h1>
+      </header>
+
+      <form class="form" id="form">
+        <label for="username">Unique ID</label>
+        <input type="text" id="unique" placeholder="unique id" /> <br />
+
+        <label for="username">Name</label>
+        <input type="text" name="username" id="username" /> <br />
+
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" /> <br />
+
+        <span style="display: flex" id="radioBtn">
+          <label for="designation">Designation </label>
+          <input type="radio" id="html" name="fav_language" value="Employee" />
+          <label for="Employee">Employee </label>
+          <input type="radio" name="fav_language" value="Student" />
+          <label for="Student">Student</label>
+        </span>
+        <br />
+        <select id="category" id="cat">
+          <option value="">Priority</option>
+          <option value="Fiction">P0</option>
+          <option value="Self Help">P1</option>
+          <option value="Finance">P2</option>
+        </select>
+        <br />
+
+        <select id="Vaccine" id="Vaccine">
+          <option value="">Vaccine</option>
+          <option value="Covishield">Covishield</option>
+          <option value="Covaxin">Covaxin</option>
+          <option value="Sputnik">Sputnik</option>
+        </select>
+        <br />
+
+        <input id="submit" type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
+<script>
+  //   // Dom elements
+  //   let form = document.querySelector("form");
+  //   let userName = document.querySelector("#username");
+  //   let age = document.querySelector("#age");
+  //   let designation = document.querySelector("#designation");
+  //   let category = document.querySelector("#category");
+  //   let Vaccine = document.querySelector("#Vaccine");
+  //   //   let age = document.querySelector("#age");
+
+  //   // Event listener to submit form
+  //   form.addEventListener("submit", (e) => {
+  //     e.preventDefault();
+  //     handleInput();
+  //   });
+
+  //   function handleInput() {
+  //     // Values from dom elements ( input )
+  //     let userNameValue = userName.value.trim();
+  //     let Age = age.value.trim();
+  //     let DesignationValue = designation.value.trim();
+  //     let CategoryValue = category.value.trim();
+  //     let VaccineValue = Vaccine.value.trim();
+
+  //     //  Checking for username
+  //     if (userNameValue === "") {
+  //       setErrorFor(userName, "Username cannot be blank");
+  //     } else if (userNameValue.length <= 4) {
+  //       setErrorFor(userName, "Username must be at least 4 characters");
+  //     } else {
+  //       setSuccessFor(userName);
+  //     }
+  //     // Age
+  //     if (Age === "") {
+  //       setErrorFor(Age, "Age cannot be blank");
+  //     } else if (Age <= 18 || Age >= 40) {
+  //       setErrorFor(Age, "Age is not acceptable");
+  //     } else {
+  //       setSuccessFor(Age);
+  //     }
+
+  //     if (Designation === "") {
+  //       setErrorFor(Designation, "Designation cannot be blank");
+  //     } else if (Designation <= 18 || Designation >= 40) {
+  //       setErrorFor(Designation, "Designation is not acceptable");
+  //     } else {
+  //       setSuccessFor(Designation);
+  //     }
+  //   }
+  //   const main = document.getElementById("main");
+
+  //   function setErrorFor(input, message) {
+  //     let formControl = input.parentElement;
+  //     formControl.className = "form-control error";
+  //     let small = formControl.querySelector("small");
+  //     small.innerText = message;
+  //   }
+
+  //   function setSuccessFor(input) {
+  //     let formControl = input.parentElement;
+  //     formControl.className = "form-control success";
+  //   }
+
+  document.querySelector("#form").addEventListener("submit", appendDataLS);
+  let vaccineData = JSON.parse(localStorage.getItem("vaccineData")) || [];
+  function appendDataLS(event) {
+    event.preventDefault();
+
+    let Data = {
+      username: document.querySelector("#username").value,
+      age: document.querySelector("#age").value,
+      radioBtn: document.querySelector("#radioBtn").value,
+      cat: document.querySelector("#cat").value,
+      Vaccine: document.querySelector("#Vaccine").value,
+    };
+
+    document.querySelector("#username").value;
+    document.querySelector("#age").value;
+    document.querySelector("#radioBtn").value;
+    document.querySelector("#cat").value;
+    document.querySelector("#Vaccine").value;
+    // Push data
+    vaccineData.push(Data);
+    console.log(vaccineData);
+    localStorage.setItem("vaccineData", JSON.stringify(vaccineData));
+  }
+</script>
+>>>>>>> 92cd3333497cd4634e6512d89763a30788e3a020
